@@ -3,13 +3,17 @@ import Login from './components/Auth/Login'
 import EmployeeDashboard from './components/Dashboard/EmployeeDashboard'
 import AdminDashboard from './components/Dashboard/AdminDashboard'
 import { AuthContext } from './context/AuthProvider'
+import { loadLocalStorage } from './utils/LocalStorage'
 
 const App = () => {
-
+  
   const [user, setUser] = useState(null)
   const [loggedInUserData, setLoggedInUserData] = useState(null)
   const [userData,SetUserData] = useContext(AuthContext)
-
+  if(userData.length === 0){
+    loadLocalStorage(SetUserData)
+    console.log("loaded...")
+  }
   useEffect(()=>{
     const loggedInUser = localStorage.getItem('loggedInUser')
     
@@ -24,6 +28,7 @@ const App = () => {
 
   const handleLogin = (email, password) => {
     if (email == 'admin@me.com' && password == '123') {
+      
       setUser('admin')
       localStorage.setItem('loggedInUser', JSON.stringify({ role: 'admin' }))
     } else if (userData) {

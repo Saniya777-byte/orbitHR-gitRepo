@@ -201,7 +201,10 @@ const employees = [
     }
 ];
 
-
+export const loadLocalStorage = (setFn) =>{
+    setLocalStorage(employees);
+    setFn(employees);
+}
 const admin = [{
     "id": 1,
     "email": "admin@example.com",

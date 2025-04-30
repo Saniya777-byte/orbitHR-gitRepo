@@ -7,6 +7,7 @@ import Header from '../other/Header';
 
 const AdminDashboard = ({ changeUser  }) => {
   const [userData] = useContext(AuthContext);
+  console.log(JSON.stringify(userData));
   const [selectedEmployee, setSelectedEmployee] = useState(null);
 
   const handleEmployeeSelect = (employee) => {

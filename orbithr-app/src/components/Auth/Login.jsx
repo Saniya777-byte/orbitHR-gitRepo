@@ -45,7 +45,7 @@ const Login = ({ handleLogin }) => {
               onChange={(e) => setEmail(e.target.value)}
               required
               className="w-full px-5 py-3 text-white bg-black/20 border border-emerald-500/30 rounded-xl placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-emerald-500 transition duration-300"
-              type="email"
+              type="email "
               placeholder="Enter your email"
             />
             <input
